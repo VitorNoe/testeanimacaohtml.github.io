@@ -1,0 +1,29 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #111;
+    overflow: hidden;
+}
+
+.container {
+    perspective: 1000px;
+}
+
+.card {
+    width: 300px;
+    height: 400px;
+    background: linear-gradient(145deg, #6e40c9, #8f5fe6);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: Arial, sans-serif;
+    transform-style: preserve-3d;
+    transition: transform 0.2s;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.5);
+}
