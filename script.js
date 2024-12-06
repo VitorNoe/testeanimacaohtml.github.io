@@ -1,6 +1,16 @@
 const card = document.querySelector('.card');
 const container = document.querySelector('.container');
+const loadingBar = document.querySelector('.loading-bar');
 
+// Animação de carregamento da barra
+setTimeout(() => {
+    loadingBar.style.display = 'none';  // Esconde a barra de carregamento
+    container.style.opacity = 1;        // Faz o container aparecer
+    card.style.opacity = 1;             // Torna o cartão visível
+    card.style.transform = 'translateY(0)'; // Animação para o cartão aparecer
+}, 2000);
+
+// Restante do código já implementado
 container.addEventListener('mousemove', (e) => {
     let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
     let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
