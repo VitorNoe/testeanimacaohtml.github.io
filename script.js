@@ -1,47 +1,39 @@
-const card = document.querySelector('.card');
-const container = document.querySelector('.container');
-const loadingBar = document.querySelector('.loading-bar');
+// Seleção dos elementos
+const gear = document.getElementById('gear');
+const modeCard = document.getElementById('modeCard');
+const lightModeBtn = document.getElementById('lightMode');
+const darkModeBtn = document.getElementById('darkMode');
 
-// Animação de carregamento da barra
-setTimeout(() => {
-    loadingBar.style.display = 'none';  // Esconde a barra de carregamento
-    container.style.opacity = 1;        // Faz o container aparecer
-    card.style.opacity = 1;             // Torna o cartão visível
-    card.style.transform = 'translateY(0)'; // Animação para o cartão aparecer
-}, 2000);
+// Estado de visibilidade
+let isCardVisible = false;
 
-// Efeito parallax
-container.addEventListener('mousemove', (e) => {
-    let xOffset = (window.innerWidth / 2 - e.pageX) / 25;
-    let yOffset = (window.innerHeight / 2 - e.pageY) / 25;
-    container.style.backgroundPosition = `${xOffset}px ${yOffset}px`;
-    
-    // Efeito de rotação do cartão
-    let xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-    let yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-    card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+// Animação da engrenagem e do cartão
+gear.addEventListener('click', () => {
+    // Gira a engrenagem
+    gear.classList.add('spin');
 
-    // Efeito de sombra do cartão
-    const shadowX = (e.pageX - window.innerWidth / 2) / 10;
-    const shadowY = (e.pageY - window.innerHeight / 2) / 10;
-    card.style.boxShadow = `${-shadowX}px ${-shadowY}px 60px rgba(0, 0, 0, 0.3), 
-                            ${shadowX}px ${shadowY}px 60px rgba(0, 0, 0, 0.1)`;
+    // Mostra ou esconde o cartão de opções
+    if (!isCardVisible) {
+        modeCard.classList.add('visible');
+    } else {
+        modeCard.classList.remove('visible');
+    }
+    isCardVisible = !isCardVisible;
+
+    // Reseta a rotação da engrenagem após a animação
+    setTimeout(() => {
+        gear.classList.remove('spin');
+    }, 1000);
 });
 
-// Evento de clique para "afundar" o cartão
-card.addEventListener('mousedown', () => {
-    card.style.transform += ' scale(0.95)';
-    card.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.5)';
+// Alterna para o modo claro
+lightModeBtn.addEventListener('click', () => {
+    document.body.style.backgroundColor = '#f5f5f5';
+    document.body.style.color = '#333';
 });
 
-// Evento de soltar para voltar ao normal
-card.addEventListener('mouseup', () => {
-    card.style.transform = card.style.transform.replace(' scale(0.95)', '');
-    card.style.boxShadow = '0 20px 50px rgba(0, 0, 0, 0.2)';
-});
-
-// Remove o efeito de clique ao sair do cartão
-card.addEventListener('mouseleave', () => {
-    card.style.transform = `rotateY(0deg) rotateX(0deg)`;
-    card.style.boxShadow = '0 20px 50px rgba(0, 0, 0, 0.2)';
+// Alterna para o modo escuro
+darkModeBtn.addEventListener('click', () => {
+    document.body.style.backgroundColor = '#111';
+    document.body.style.color = '#fff';
 });
