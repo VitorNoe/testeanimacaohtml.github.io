@@ -22,12 +22,13 @@ body {
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: center;  /* Centraliza verticalmente */
+    align-items: center;      /* Centraliza horizontalmente */
     color: white;
+    text-align: center;       /* Garante que o texto fique centralizado */
     font-family: Arial, sans-serif;
     transform-style: preserve-3d;
-    transition: transform 0.1s, box-shadow 0.1s, filter 0.3s ease;
+    transition: transform 0.1s, box-shadow 0.1s;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
     position: relative;
     opacity: 0;
@@ -51,30 +52,4 @@ body {
     100% {
         width: 100%;
     }
-}
-
-/* Parallax effect */
-.container {
-    background: url('https://www.example.com/your-background-image.jpg') no-repeat center center fixed;
-    background-size: cover;
-    transition: background-position 0.5s;
-}
-
-/* Hover desfoque no card */
-.card:hover {
-    filter: blur(4px);
-}
-
-/* Distorção ao passar o mouse */
-.card:hover {
-    transform: translateY(-10px) scale(1.05) rotate(5deg);
-}
-
-/* Transição de cor de texto ao passar o mouse */
-.card p {
-    transition: color 0.3s ease-in-out;
-}
-
-.card:hover p {
-    color: #ffeb3b;
 }
