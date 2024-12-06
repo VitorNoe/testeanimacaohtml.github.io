@@ -1,21 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste Animações</title>
+    <title>Configuração de Tema Interativo</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="loading-bar"></div>
-
     <div class="container">
-        <div class="card">
-            <h2>Card Interativo</h2>
-            <p>Desça o mouse sobre o cartão para interagir!</p>
+        <!-- Engrenagem central -->
+        <div class="gear-wrapper">
+            <div class="gear" id="gear"></div>
+        </div>
+
+        <!-- Cartão de configurações -->
+        <div class="mode-card" id="modeCard">
+            <h2>Escolha o Tema</h2>
+            <button class="theme-btn light-mode" id="lightMode">🌞 Modo Claro</button>
+            <button class="theme-btn dark-mode" id="darkMode">🌜 Modo Escuro</button>
         </div>
     </div>
 
+    <!-- Script JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
